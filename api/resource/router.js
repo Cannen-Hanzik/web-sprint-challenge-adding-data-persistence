@@ -10,17 +10,15 @@ router.get('/', (req, res, next) => {
         .then(resource => {
             res.status(200).json(resource);
         })
-        .catch(next());
+        .catch(next);
 });
 
 router.post('/', checkUniqueResourceName, (req, res, next) => {
     db.add(req.body)
         .then(newRsc => {
-            res.status(201).json(
-                newRsc[
-                    newRsc.length-1
-                ]
-            )
+            res.status(201).json(newRsc[
+                newRsc.length -1
+            ])
         })
         .catch(next)
 });

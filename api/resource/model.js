@@ -10,7 +10,7 @@ function get(filter) {
 };
 
 function add(resource){
-    return db(resource)
+    return db('resources')
         .insert(resource)
         .then(() => {
             return getAll()
